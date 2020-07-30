@@ -9,13 +9,22 @@
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
 </head>
 
-<body>
-    <div class="hero-sm" style="background-color:cadetblue;">
+<body style="background-color: cadetblue;">
+    <div class="hero-sm" style="text-align:center;margin-bottom:0em">
         <div class="hero-body">
             <h1>Carlquist Development</h1>
             <p>Software by Jacob Carlquist</p>
         </div>
     </div>
+    <header class="navbar">
+        <section class="navbar-section">
+            <a href="home.hbs" class="btn btn-link" style="color:white">Home</a>
+            <a href="/views/about.hbs" class="btn btn-link" style="color: white;">About me</a>
+            <a href="/views/algorithm.hbs" class="btn btn-link" style="color: white;">Hackerrank Solutions</a>
+            <a href="/views/project.hbs" class="btn btn-link" style="color: white;">My projects</a>
+        </section>
+
+    </header>
     {{{body}}}
 </body>
 

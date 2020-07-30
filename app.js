@@ -15,7 +15,7 @@ app.get('/', function (request, response) {
   const model = {
     humans: dummyData.humans,
   };
-  response.render('show-all-humans.hbs', model);
+  response.render('home.hbs', model);
 });
 
 app.listen(8080);
