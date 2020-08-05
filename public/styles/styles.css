@@ -1,0 +1,24 @@
+.head1 {
+  background-color: lightslategray;
+  height: fit-content;
+  padding: 50px;
+  color: white;
+}
+/* Main */
+.btn {
+  color: black;
+  background-color: whitesmoke;
+  text-align: center;
+  margin: 5px;
+  border: 2px solid lightgray;
+  border-radius: 5px;
+  transition-duration: 0.4s;
+}
+.btn:hover {
+  background-color: white;
+}
+.navbar {
+  background-color: whitesmoke;
+  height: 70px;
+}
+/* Home */

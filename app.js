@@ -11,6 +11,8 @@ app.engine(
   })
 );
 
+app.use(express.static(__dirname + '/public'));
+
 app.get('/', function (request, response) {
   const model = {
     humans: dummyData.humans,
