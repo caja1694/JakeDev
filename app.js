@@ -36,5 +36,8 @@ app.get('/projects', function (req, res) {
 app.get('/login', function (req, res) {
   res.render('login.hbs');
 });
+app.get('/contact', function (req, res) {
+  res.render('contact.hbs');
+});
 
 app.listen(8080);
