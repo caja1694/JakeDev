@@ -30,7 +30,10 @@ app.get('/algorithms', function (req, res) {
 });
 
 app.get('/projects', function (req, res) {
-  res.render('project.hbs');
+  const model = {
+    project: dummyData.project,
+  };
+  res.render('project.hbs', model);
 });
 
 app.get('/login', function (req, res) {
