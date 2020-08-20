@@ -1,1 +1,17 @@
 <h1>Algos</h1>
+
+{{#if admin}}
+<p>Upload file</p>
+<form action="/algorithms" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file" required>
+    <button type="submit">Upload</button>
+</form>
+{{/if}}
+
+<div class="code-list">
+    <ul>
+        {{#each files}}
+        <li><a href="/algorithms/{{id}}">{{name}}</a></li>
+        {{/each}}
+    </ul>
+</div>

@@ -1,53 +1,35 @@
-<div class="row">
-    <div class="column2">
-        <div class="card">
-            <div class="card-image">
-                <img class="code1" src="../imgs/codepictures.jpg" alt="Code">
-            </div>
-            <div class="card-header">
-                <div class="card-title h5">Title</div>
-                <div class="card-subtitle text-gray">Subtitle</div>
-            </div>
-            <div class="card-body">
-                Desc
-            </div>
-            <div class="card-footer">
-                <a href="https://github.com">Github</a>
-            </div>
-        </div>
-    </div>
-    <div class="column2">
-        <div class="card">
-            <div class="card-image">
-                <img class="code1" src="../imgs/codepictures.jpg" alt="Code">
-            </div>
-            <div class="card-header">
-                <div class="card-title h5">Title</div>
-                <div class="card-subtitle text-gray">Subtitle</div>
-            </div>
-            <div class="card-body">
-                Desc
-            </div>
-            <div class="card-footer">
-                <a href="https://github.com">Github</a>
+{{#if admin}}
+<button>
+    <a href="/projects/add">Add project</a>
+</button>
+{{/if}}
+
+{{#if error}}
+<p>{{error}}</p>
+{{/if}}
+
+
+<div class="container">
+    <div class="columns">
+        {{#each projects}}
+        <div class="column col-4">
+            <div class="card">
+                <div class="card-image">
+                    <img class="code1" src="../imgs/codepictures.jpg" alt="Code">
+                </div>
+                <div class="card-header">
+                    <div class="card-title h5">{{title}}</div>
+                    <div class="card-subtitle text-gray">{{subtitle}}</div>
+                </div>
+                <div class="card-body" id="desc">
+                    {{description}}
+                </div>
+                <div class="card-footer">
+                    <a href="{{git}}" target="_blank">Github</a>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="column2">
-        <div class="card">
-            <div class="card-image">
-                <img class="code1" src="../imgs/codepictures.jpg" alt="Code">
-            </div>
-            <div class="card-header">
-                <div class="card-title h5">Title</div>
-                <div class="card-subtitle text-gray">Subtitle</div>
-            </div>
-            <div class="card-body">
-                Desc
-            </div>
-            <div class="card-footer">
-                <a href="https://github.com">Github</a>
-            </div>
-        </div>
+        {{/each}}
+
     </div>
 </div>

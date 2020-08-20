@@ -32,6 +32,11 @@ exports.algo = [
   {
     id: 0,
     name: 'beautifulDays.py',
-    file: 'beautifulDays.py',
+    content: 'for x in range(0, 10):\n      print(x)',
+  },
+  {
+    id: 1,
+    name: 'file2.py',
+    content: 'if a == b:\n       print(a)\n    else: \n        print(b)',
   },
 ];

@@ -1,9 +1,31 @@
-const dummyData = require('./dummy-data');
 const express = require('express');
 const expressHandlebars = require('express-handlebars');
-const { response } = require('express');
+const bodyParser = require('body-parser');
+
+const hljs = require('highlightjs');
+
+const db = require('./db');
+const session = require('express-session');
+const connectSqlite3 = require('connect-sqlite3');
+const sqLiteStore = connectSqlite3(session);
 
 const app = express();
+
+const varRouter = require('./api/various-router');
+const algoRouter = require('./api/algo-router');
+const loginRouter = require('./api/login-router');
+const projectRouter = require('./api/project-router');
+const { request, response } = require('express');
+
+// Store session
+app.use(
+  session({
+    store: new sqLiteStore({ db: 'database.db' }),
+    saveUninitialized: false,
+    resave: false,
+    secret: 'ioajrevoieac',
+  })
+);
 
 app.engine(
   'hbs',
@@ -12,35 +34,23 @@ app.engine(
   })
 );
 
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Public files
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', function (request, response) {
-  const model = {
-    humans: dummyData.humans,
-  };
-  response.render('home.hbs', model);
+// Routers
+app.use('/', varRouter);
+app.use('/about', varRouter);
+app.use('/contact', varRouter);
+app.use('/algorithms', algoRouter);
+app.use('/projects', projectRouter);
+app.use('/login', loginRouter);
+app.get('/logout', function (req, res) {
+  req.session.destroy();
+  res.redirect('/');
 });
 
-app.get('/about', function (req, res) {
-  res.render('about.hbs');
+app.listen(8080, function () {
+  console.log('Listeting on port 8080');
 });
-
-app.get('/algorithms', function (req, res) {
-  res.render('algorithm.hbs');
-});
-
-app.get('/projects', function (req, res) {
-  const model = {
-    project: dummyData.project,
-  };
-  res.render('project.hbs', model);
-});
-
-app.get('/login', function (req, res) {
-  res.render('login.hbs');
-});
-app.get('/contact', function (req, res) {
-  res.render('contact.hbs');
-});
-
-app.listen(8080);

@@ -34,8 +34,33 @@
   filter: grayscale(90%);
 }
 
+/* Small screens */
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  div.example {
+    font-size: 30px;
+  }
+}
+
 /* Columns */
+
+* {
+  box-sizing: border-box;
+}
+
 .column {
+  padding: 1%;
+}
+
+.column-head {
   float: left;
   width: 50%;
 }
@@ -45,6 +70,7 @@
   width: 30%;
   padding: 2%;
 }
+
 .row:after {
   content: '';
   display: table;
@@ -83,4 +109,24 @@ h2.home1 {
   margin-right: auto;
   display: block;
   width: 100%;
+}
+
+/* Project form */
+
+.form1 {
+  margin-left: 40%;
+}
+
+/*Code visuals*/
+.algo-background {
+  background-image: url('../imgs/codepictures.jpg');
+}
+
+.code-container {
+  width: 60%;
+  margin: auto;
+  background-color: rgb(219, 200, 200);
+  padding: 2%;
+  border-radius: 25px;
+  min-width: fit-content;
 }
