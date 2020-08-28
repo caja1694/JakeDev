@@ -39,6 +39,23 @@ router.post('/', function (req, res) {
   });
 });
 
+router.get('/view/:id', function (req, res) {
+  const id = req.params.id;
+  getProjectById(id, function (err, project) {
+    if (err) {
+      console.log('Error retreving project', err);
+    } else {
+      console.log('Got project');
+    }
+    const model = {
+      admin: req.session.admin,
+      project: project,
+      error: err,
+    };
+    res.render('single-project.hbs', model);
+  });
+});
+
 router.get('/add', function (req, res) {
   const model = {
     admin: req.session.admin,
@@ -60,6 +77,13 @@ function addProject(project, callback) {
       callback(err);
     }
   );
+}
+
+function getProjectById(id, callback) {
+  const query = 'SELECT * FROM projects WHERE id = (?)';
+  db.get(query, id, function (err, project) {
+    callback(err, project);
+  });
 }
 
 function getAllProject(callback) {
