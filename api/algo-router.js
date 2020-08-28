@@ -27,8 +27,9 @@ router.post('/', function (req, res) {
     if (err) {
       console.log('Error parsing file', err);
     }
-    const path = file.file.path;
-    var name = file.file.name;
+    console.log('FILE: ', file);
+    const path = file.choose_btn.path;
+    var name = file.choose_btn.name;
     fs.readFile(path, function (err, buf) {
       if (err) {
         console.log('Error reading file', err);
@@ -78,7 +79,7 @@ function getFile(id, callback) {
 }
 
 function addFile(name, file, callback) {
-  const query = 'INSERT INTO algos (name, file) VALUES(?, ?)';
+  const query = 'INSERT INTO algos (name, code) VALUES(?, ?)';
   db.run(query, name, file, function (err) {
     callback(err);
   });
