@@ -2,26 +2,19 @@
 <div class="form1">
     <form action="/projects" method="POST">
         <div class="form-group">
-            <label for="title" class="form-label">Title</label>
+            <label for="title" class="form-label">Title:</label>
             <input class="input" type="text" name="title" id='title' maxlength="20" placeholder="Title" required>
-        </div>
-        <div class="form-group">
-            <label for="subtitle" class="form-label">Subtitle</label>
-            <input class="input" type="text" name="subtitle" id='subtitle' maxlength="40" placeholder="Subtitle"
-                required>
-        </div>
-        <div class="form-group">
-            <label for="description" class="form-label">Description</label>
-            <textarea class="textarea" type="text" name="description" maxlength="180" id="description"
-                placeholder="Description" required></textarea>
-        </div>
-        <div class="form-group">
-            <label for="git" class="form-label">Git</label>
+            <label for="subtitle" class="form-label">Type: </label>
+            <input class="input" type="text" name="subtitle" id='subtitle' maxlength="40" placeholder="Type" required>
+
+            <label for="git" class="form-label">Gitub: </label>
             <input class="input" type="text" name="git" id="git" placeholder="Git link" required>
-        </div>
-        <div class="form-group">
-            <label for="img" class="form-label">Image url</label>
+
+            <label for="img" class="form-label">Image name: </label>
             <input class="input" type="text" name="img" id="img" placeholder="imgURL">
+            <label for="description" class="form-label">Description: </label>
+            <textarea class="textarea" type="text" name="description" rows="5" cols="40" id="description"
+                placeholder="Description" required></textarea>
         </div>
         <button class="button" type="submit">Add project</button>
     </form>

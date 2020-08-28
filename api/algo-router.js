@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require('../db');
 const fs = require('fs');
 const formidable = require('formidable');
+const hljs = require('highlightjs');
 
 router.get('/', function (req, res) {
   getFiles(function (err, files) {

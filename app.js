@@ -2,8 +2,6 @@ const express = require('express');
 const expressHandlebars = require('express-handlebars');
 const bodyParser = require('body-parser');
 
-const hljs = require('highlightjs');
-
 const db = require('./db');
 const session = require('express-session');
 const connectSqlite3 = require('connect-sqlite3');
