@@ -27,7 +27,6 @@ router.post('/', function (req, res) {
     if (err) {
       console.log('Error parsing file', err);
     }
-    console.log('FILE: ', file);
     const path = file.choose_btn.path;
     var name = file.choose_btn.name;
     fs.readFile(path, function (err, buf) {
@@ -57,7 +56,7 @@ router.get('/:id', function (req, res) {
     }
     const model = {
       admin: req.session.admin,
-      file: file.file,
+      file: file.code,
       name: file.name,
     };
     res.render('single-algorithm.hbs', model);
